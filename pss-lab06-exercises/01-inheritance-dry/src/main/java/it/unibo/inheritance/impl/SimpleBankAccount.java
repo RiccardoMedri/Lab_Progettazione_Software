@@ -1,5 +1,4 @@
 package it.unibo.inheritance.impl;
-
 import it.unibo.inheritance.api.BankAccount;
 
 public class SimpleBankAccount implements BankAccount {
@@ -80,7 +79,7 @@ public class SimpleBankAccount implements BankAccount {
          */
         this.withdraw(id, amount + SimpleBankAccount.ATM_TRANSACTION_FEE);
     }
-
+ 
     protected boolean checkUser(final int id) {
         return this.id == id;
     }

@@ -1,5 +1,4 @@
 package it.unibo.inheritance.impl;
-
 import it.unibo.inheritance.api.BankAccount;
 
 public class StrictBankAccount implements BankAccount {
