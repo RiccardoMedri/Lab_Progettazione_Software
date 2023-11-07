@@ -2,7 +2,6 @@ plugins {
     java
     application
 }
-
 application {
-    mainClass.set("it.unibo.shapes.impl.Circle")
+    mainClass.set("it.unibo.shapes.test.WorkWithShapes")
 }

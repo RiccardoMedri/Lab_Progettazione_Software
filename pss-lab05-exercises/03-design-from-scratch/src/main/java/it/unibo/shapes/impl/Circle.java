@@ -19,10 +19,4 @@ public class Circle implements Shape {
         double area = Circle.pigreco*(this.raggio+this.raggio);
         return area;
     }
-
-    public static void main (String[] args) {
-        Circle cerchio = new Circle(3);
-        double perimetro = cerchio.Perimetro();
-        System.out.println(perimetro);
-    }
 }
