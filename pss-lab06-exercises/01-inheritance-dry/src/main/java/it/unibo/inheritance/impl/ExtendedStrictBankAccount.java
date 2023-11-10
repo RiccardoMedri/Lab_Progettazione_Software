@@ -4,12 +4,7 @@ public class ExtendedStrictBankAccount extends SimpleBankAccount{
     
     private static final double TRANSACTION_FEE = 0.1;
 
-    //NON DOVREMMO AGGIUNGERE ANCHE QUESTI CAMPI IN QUANTO PRIVATI IN SIMPLE?
-    /*private final int id;
-    private double balance;
-    private int transactions;*/
-
-    //perché cambio id? perchè è final in Simple? e perchè non balance?
+    //perché cambio id? perchè è final in Simple? SI' VEDI SLIDE 45 PDF
     public ExtendedStrictBankAccount(final int usrID, final double balance) {
         super(usrID, balance);
     }

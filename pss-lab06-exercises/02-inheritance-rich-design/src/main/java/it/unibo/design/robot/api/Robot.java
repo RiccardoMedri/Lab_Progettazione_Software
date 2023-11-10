@@ -1,6 +1,6 @@
-package it.unibo.design.robot.api;
+package it.unibo.design.robot.api; 
 
-import it.unibo.design.robot.environment.api.Position2D;
+import it.unibo.design.robot.environment.api.Position2D;        //Position2D usato nell'ultimo metodo come tipo di ritorno, è stato importato per usare il tipo di classe come tipo di ritorno in getPosition ma non viene completamente implementato
 
 /**
  * A robot that can move
@@ -48,7 +48,7 @@ public interface Robot {
 
     /**
      * @return The robot environment
-     */
-    Position2D getPosition();
+     */ 
+    Position2D getPosition();               //quindi restituisce le coordinate x e y?
 
 }

@@ -25,7 +25,7 @@ public class BaseRobot implements Robot {
      * @throws Exception
      */
     public BaseRobot(final String robotName) {
-        this.environment = new RobotEnvironment(new RobotPosition(0, 0));
+        this.environment = new RobotEnvironment(new RobotPosition(0, 0));               //this.environment viene creato chiamando prima il costruttore di RobotEnvironment che richiede come argomento un oggetto di tipo Position2D che non è altro se non due coordinate cartesiane, tale oggetto Position2D (e percio tali coordinate) è fornito a sua volta dal costruttore di RobotPosition che richiede come argomenti una coordinata x e una y
         this.robotName = robotName;
         this.batteryLevel = BATTERY_FULL;
     }
@@ -35,7 +35,7 @@ public class BaseRobot implements Robot {
      * 
      * @param amount
      */
-    protected void consumeBattery(final double amount) {
+    protected void consumeBattery(final double amount) {                                    //perché non fa parte dell'interfaccia robot?
         if (batteryLevel >= amount) {
             this.batteryLevel -= amount;
         } else {

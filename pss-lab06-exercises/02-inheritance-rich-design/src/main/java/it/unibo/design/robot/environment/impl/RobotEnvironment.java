@@ -1,4 +1,4 @@
-package it.unibo.design.robot.environment.impl;
+package it.unibo.design.robot.environment.impl; 
 
 import it.unibo.design.robot.environment.api.Position2D;
 
@@ -26,7 +26,7 @@ public class RobotEnvironment {
      */
     public static final int Y_LOWER_LIMIT = 0;
 
-    private Position2D position;
+    private Position2D position;                    //stessa domanda del metodo getPosition di Robot: quindi restituisce le coordinate x e y?
 
     /**
      * 
