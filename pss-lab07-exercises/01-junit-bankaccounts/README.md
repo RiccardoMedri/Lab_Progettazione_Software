@@ -1,4 +1,4 @@
-# Unit testing with JUnit 5
+# Unit testing with JUnit 5 
 
 Consider the *Banking* domain of previous labs: `AccountHolder`s, `BankAccount`s, and their implementations.
 Write unit tests to verify the correctness of these classes.

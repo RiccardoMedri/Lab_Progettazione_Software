@@ -1,4 +1,4 @@
-package it.unibo.bank.impl;
+package it.unibo.bank.impl; 
 
 import it.unibo.bank.api.AccountHolder;
 import it.unibo.bank.api.BankAccount;
@@ -18,85 +18,73 @@ public class SimpleBankAccount implements BankAccount {
         this.transactions = 0;
     }
 
-    public void chargeManagementFees(final int id) {
-        /*
-         * Riduce il bilancio del conto di un ammontare pari alle spese di gestione
-         */
+    public void chargeManagementFees(final int id) {              //deduce le spese di gestione e azzera il contatore transazioni
+
         if (checkUser(id)) {
+            
             this.balance -= SimpleBankAccount.MANAGEMENT_FEE;
             resetTransactions();
         }
     }
 
-    public void deposit(final int id, final double amount) {
-        /*
-         * Incrementa il numero di transazioni e aggiunge amount al totale del
-         * conto Nota: il deposito va a buon fine solo se l'id utente
-         * corrisponde
-         */
+    public void deposit(final int id, final double amount) {              //aggiunge il deposito e aumenta di uno il contatore transazioni
+
         this.transactionOp(id, amount);
     }
 
-    public void depositFromATM(final int id, final double amount) {
-        /*
-         * Incrementa il numero di transazioni e aggiunge amount al totale del
-         * conto detraendo le spese (costante ATM_TRANSACTION_FEE) relative
-         * all'uso dell'ATM (bancomat) Nota: il deposito va a buon fine solo se
-         * l'id utente corrisponde
-         */
+    public void depositFromATM(final int id, final double amount) {          //stessa cosa di deposit ma sottrae al deposito il costo della ATM
+
         this.deposit(id, amount - SimpleBankAccount.ATM_TRANSACTION_FEE);
     }
 
     @Override
-    public AccountHolder getAccountHolder() {
+    public AccountHolder getAccountHolder() {               //perché override? non è un semplice completamento del metodo della interfaccia?
+        
         return holder;
     }
 
-    public double getBalance() {
+    public double getBalance() {                            //resistuisce il bilancio del conto
+        
         return this.balance;
     }
 
-    protected void setBalance(final double balance) {
+    protected void setBalance(final double balance) {       //imposta il bilancio del conto
+        
         this.balance = balance;
     }
 
-    public int getTransactionsCount() {
+    public int getTransactionsCount() {                     //restituisce il numero di transazioni effettuate
+        
         return this.transactions;
     }
 
-    public void withdraw(final int id, final double amount) {
-        /*
-         * Incrementa il numero di transazioni e rimuove amount al totale del
-         * conto. Note: - Il conto puo' andare in rosso (ammontare negativo) -
-         * Il prelievo va a buon fine solo se l'id utente corrisponde
-         */
+    public void withdraw(final int id, final double amount) {          //incrementa il numero transazioni e rimuove la cifra dal conto, il conto può andare in negativo
+ 
         this.transactionOp(id, -amount);
     }
 
-    public void withdrawFromATM(final int id, final double amount) {
-        /*
-         * Incrementa il numero di transazioni e rimuove amount + le spese
-         * (costante ATM_TRANSACTION_FEE) relative all'uso dell'ATM (bancomat)
-         * al totale del conto. Note: - Il conto puo' andare in rosso (ammontare
-         * negativo) - Il prelievo va a buon fine solo se l'id utente
-         * corrisponde
-         */
+    public void withdrawFromATM(final int id, final double amount) {        //incrementa il numero di transazioni e rimuove la cifra + spese ATM dal conto, il conto può andare in rosso
+
         this.withdraw(id, amount + SimpleBankAccount.ATM_TRANSACTION_FEE);
     }
 
-    protected boolean checkUser(final int id) {
+    protected boolean checkUser(final int id) {                 //restituisce l'id dell'AccountHolder restituito da getAccountHolder
+        
         return this.getAccountHolder().getUserID() == id;
     }
 
-    protected void incrementTransactions() {
+    protected void incrementTransactions() {                    //incrementa contatore di transazioni
+
         this.transactions++;
     }
 
-    protected void resetTransactions() {
+    protected void resetTransactions() {                        //resetta contatore transazioni
+
         this.transactions = 0;
     }
 
-    private void transactionOp(final int id, final double amount) {
+    private void transactionOp(final int id, final double amount) {           //aggiunge la cifra e aumenta di uno il contatore transazioni
+        
         if (checkUser(id)) {
             this.balance += amount;
             this.incrementTransactions();
