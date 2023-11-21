@@ -1,4 +1,4 @@
-package it.unibo.collections.design.api;
+package it.unibo.collections.design.api; 
 
 import java.util.Set;
 
