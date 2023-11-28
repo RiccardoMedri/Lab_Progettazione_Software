@@ -1,4 +1,4 @@
-package it.unibo.collections.design;
+package it.unibo.collections.design; 
 
 import it.unibo.collections.design.api.Product;
 import it.unibo.collections.design.api.Warehouse;
