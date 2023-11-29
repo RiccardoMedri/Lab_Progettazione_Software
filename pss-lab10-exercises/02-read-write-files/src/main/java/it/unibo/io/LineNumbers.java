@@ -27,5 +27,14 @@ public final class LineNumbers {
      * @throws IOException if something very bad happens to the file system while operating
      */
     public static void addLineNumbersToTextFile(final File file) throws IOException {
+        final var lines = Files.readAllLines(file.toPath(), StandardCharsets.UTF_8);        //Legge tutte le linee di testo dal file specificato (file.toPath()) utilizzando l'encoding UTF-8. Restituisce un elenco (List<String>) di linee di testo.
+        final var numberedLines = new ArrayList<String>(lines.size());                      //Crea un nuovo oggetto ArrayList<String> denominato numberedLines, con una capacità iniziale uguale al numero di linee nel file letto.
+        for (int lineNumber = 1; lineNumber <= lines.size(); lineNumber++) {                //Itera attraverso tutte le linee lette dal file.
+            numberedLines.add(lineNumber + " " + lines.get(lineNumber - 1));                //Per ogni linea letta, aggiunge una nuova stringa all'ArrayList numberedLines. Questa nuova stringa contiene il numero di riga seguito da uno spazio e poi il contenuto effettivo della linea.
+        }
+        final var destination = new File(                                                   //Crea un nuovo oggetto File denominato destination che rappresenta il percorso in cui verrà scritto il nuovo file. Il nuovo file avrà lo stesso percorso del file originale, ma con il prefisso "numbered-" aggiunto al nome del file.
+            file.getParentFile().getAbsolutePath() + File.separator + "numbered-" + file.getName()
+        );
+        Files.write(destination.toPath(), numberedLines, StandardCharsets.UTF_8);           //Scrive tutte le righe presenti nell'ArrayList numberedLines nel nuovo file specificato da destination, utilizzando l'encoding UTF-8.
     }
 }
